@@ -13,7 +13,10 @@ BUILDDIR = build/
 
 OBJS = $(BUILDDIR)RandBitGen.o \
        $(BUILDDIR)Gauss_Rnd.o  \
-       $(BUILDDIR)Uniform_Rnd.o
+       $(BUILDDIR)Uniform_Rnd.o \
+       $(BUILDDIR)QPSKDemodulator.o \
+       $(BUILDDIR)QPSKModulator.o
+       
        	
 $(BUILDDIR)$(TARGET) : $(OBJS)
 	$(AR) $@ $(OBJS)
@@ -27,6 +30,12 @@ $(BUILDDIR)Gauss_Rnd.o : $(SRCDIR)Gauss_Rnd.cpp
 $(BUILDDIR)Uniform_Rnd.o : $(SRCDIR)Uniform_Rnd.cpp
 	$(CC) $(INCDIR) -c $^ -o $@	
 	
+$(BUILDDIR)QPSKDemodulator.o : $(SRCDIR)QPSKDemodulator.cpp
+	$(CC) $(INCDIR) -c $^ -o $@	
+	
+$(BUILDDIR)QPSKModulator.o : $(SRCDIR)QPSKModulator.cpp
+	$(CC) $(INCDIR) -c $^ -o $@	
+		
 clean :
 	rm -f $(OBJS) $(BUILDDIR)$(TARGET) -d $(BUILDDIR)
 	

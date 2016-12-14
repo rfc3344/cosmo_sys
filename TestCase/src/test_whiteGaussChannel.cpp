@@ -1,5 +1,7 @@
 #include "SysSchduler.h"
 #include "RandBitGen.h"
+#include "QPSKDemodulator.h"
+#include "QPSKModulator.h"
 
 void testWhiteGaussChannel()
 {
@@ -11,5 +13,8 @@ void testWhiteGaussChannel()
 
     RandBitGen RndBitSource(10, 1243423, 0);
     registerDataGenerator(&RndBitSource);
+
+    QPSKModulator QPSK;
+
 
 }
